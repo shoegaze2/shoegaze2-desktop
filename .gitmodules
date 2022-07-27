@@ -1,0 +1,12 @@
+[submodule "deps/portaudio"]
+	path = deps/portaudio
+	url = https://github.com/PortAudio/portaudio.git
+[submodule "deps/glfw"]
+	path = deps/glfw
+	url = https://github.com/glfw/glfw.git
+[submodule "deps/glad"]
+	path = deps/glad
+	url = https://github.com/Dav1dde/glad.git
+[submodule "deps/nanovg"]
+	path = deps/nanovg
+	url = https://github.com/shoegaze2/nanovg
