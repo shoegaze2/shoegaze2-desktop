@@ -7,8 +7,10 @@
 
 
 #include <Shoegaze2/System/Interface/GUI/IRenderingContext.h>
-#include <Shoegaze2Desktop/GUI/Canvas.h>
-#include <Shoegaze2Desktop/GUI/Image.h>
+#include "Image.h"
+#include "Brush.h"
+#include "Paint.h"
+#include "Path.h"
 
 
 namespace Shoegaze2Desktop
@@ -21,11 +23,6 @@ namespace Shoegaze2Desktop
         int width = 0, height = 0;
     public:
         explicit RenderingContext(GLFWwindow *window);
-
-        std::shared_ptr<Shoegaze2::ICanvas> CreateCanvas(Shoegaze2::Position pos, Shoegaze2::Size size, std::shared_ptr<Shoegaze2::ICanvas> parent = nullptr) override
-        {
-            return std::make_shared<Canvas>(this, pos, size, parent);
-        }
 
         std::shared_ptr<Shoegaze2::IImage> CreateImage(int image_width, int image_height) override
         {
@@ -60,7 +57,7 @@ namespace Shoegaze2Desktop
             nvgSetTransform(vg, m);
         }
 
-        // TODO: DELETE THIS AFTER TESTS (or maybe нет)
+        // TODO: DELETE THIS AFTER TESTS
         inline NVGcontext * GetVGContext() { return vg; }
 
 
@@ -107,6 +104,10 @@ namespace Shoegaze2Desktop
         int GetHeight() override
         {
             return height;
+        }
+
+        void Reset() override {
+            nvgReset(vg);
         }
 
         void SetDrawingSurface(std::shared_ptr<Shoegaze2::IImage> image);

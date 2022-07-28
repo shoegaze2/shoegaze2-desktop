@@ -15,15 +15,7 @@ namespace Shoegaze2Desktop {
         DisplayDevice* display;
         Mouse* mouse;
     public:
-        UISystem() {
-            display = new DisplayDevice(1000, 500);
-            mouse = nullptr;
-            if (!display->Initialize()) return;
-
-            glfwSetWindowUserPointer(display->GetWindow(), this);
-
-            mouse = new Mouse(display->GetWindow());
-        }
+        UISystem();
 
         void Update() override {}
         void Render() override {}
@@ -31,12 +23,7 @@ namespace Shoegaze2Desktop {
         DisplayDevice* GetDisplay() { return display; }
         Mouse* GetMouse() { return mouse; }
 
-        ~UISystem() {
-            delete display;
-
-            if (mouse != nullptr)
-                delete mouse;
-        }
+        ~UISystem() override;
     };
 }
 

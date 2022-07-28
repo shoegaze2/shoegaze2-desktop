@@ -10,3 +10,6 @@
 [submodule "deps/nanovg"]
 	path = deps/nanovg
 	url = https://github.com/shoegaze2/nanovg
+[submodule "deps/shoegaze2"]
+	path = deps/shoegaze2
+	url = https://github.com/shoegaze2/shoegaze2.git

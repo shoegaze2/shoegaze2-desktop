@@ -6,20 +6,18 @@
 #define SHOEGAZE2_DESKTOP_MOUSE_H
 
 #include <Shoegaze2/System/Interface/Input/IMouse.h>
-#include <GLFW/glfw3.h>
+
+struct GLFWwindow;
 
 namespace Shoegaze2Desktop {
     class UISystem;
     class Mouse : public Shoegaze2::IMouse {
     private:
-        GLFWwindow* window;
-
+        float x, y;
         static void positionCallback(GLFWwindow* window, double x, double y);
         static void buttonCallback(GLFWwindow* window, int button, int action, int mods);
     public:
-        Mouse(GLFWwindow* window) : window(window) {
-
-        }
+        explicit Mouse(GLFWwindow* window);
     };
 }
 

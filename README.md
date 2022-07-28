@@ -1,2 +1,6 @@
 # shoegaze2-desktop
-Cross-platform audio-processing app for desktop operating systems
+*This project is in early development stage*\
+Cross-platform audio-processing app for desktop operating systems\
+# Demo Application
+![DemoApp](/imgs/demoapp.gif?raw=true)
+

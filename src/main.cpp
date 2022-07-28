@@ -4,17 +4,17 @@
 #include <Shoegaze2Desktop/GUI/RenderingContext.h>
 #include <Shoegaze2/System/System.h>
 #include <Shoegaze2/Apps/DemoApp/DemoApp.h>
+#include <Shoegaze2Desktop/GUI/UISystem.h>
 
 using namespace Shoegaze2Desktop;
 using namespace Shoegaze2;
 
 int main() {
-    System system;
-    DisplayDevice display = DisplayDevice(1000, 500);
-    if (!display.Initialize()) return 0;
+    UISystem ui;
+    System system(&ui);
 
-    auto ctx = display.CreateRenderingContext();
-    auto window = display.GetWindow();
+    auto ctx = ui.GetDisplay()->GetRenderingContext();
+    auto window = ui.GetDisplay()->GetWindow();
     Font font("fonts/Montserrat-BoldItalic.ttf");
     Font::DEFAULT = &font;
 

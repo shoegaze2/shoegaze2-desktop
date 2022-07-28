@@ -13,7 +13,6 @@ set(AUDIO_API_SOURCES
 target_sources(shoegaze2-desktop-lib
         PUBLIC
         ${SHOEGAZE2DESKTOP_DIR}/GUI/Brush.h
-        ${SHOEGAZE2DESKTOP_DIR}/GUI/Canvas.h
         ${SHOEGAZE2DESKTOP_DIR}/GUI/DisplayDevice.h
         ${SHOEGAZE2DESKTOP_DIR}/GUI/Image.h
         ${SHOEGAZE2DESKTOP_DIR}/GUI/Paint.h
@@ -23,7 +22,6 @@ target_sources(shoegaze2-desktop-lib
         ${SHOEGAZE2DESKTOP_DIR}/Input/Mouse.h
         ${AUDIO_API_SOURCES}
         PRIVATE
-        ${SHOEGAZE2DESKTOP_DIR}/GUI/Canvas.cpp
         ${SHOEGAZE2DESKTOP_DIR}/GUI/DisplayDevice.cpp
         ${SHOEGAZE2DESKTOP_DIR}/GUI/Image.cpp
         ${SHOEGAZE2DESKTOP_DIR}/GUI/RenderingContext.cpp
@@ -39,7 +37,7 @@ add_subdirectory(${DEPS_DIR}/portaudio ${CMAKE_CURRENT_BINARY_DIR}/portaudio)
 
 get_target_property(PORTAUDIO_INCLUDES portaudio_static INCLUDE_DIRECTORIES)
 
-add_subdirectory(../../../shoegaze2 ${CMAKE_CURRENT_BINARY_DIR}/shoegaze2)
+add_subdirectory(../../deps/shoegaze2 ${CMAKE_CURRENT_BINARY_DIR}/shoegaze2)
 shoegaze2_add_library(shoegaze2-lib)
 
 target_include_directories(shoegaze2-desktop-lib PUBLIC ${CMAKE_CURRENT_LIST_DIR} ${PORTAUDIO_INCLUDES})

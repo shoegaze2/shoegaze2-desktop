@@ -13,6 +13,8 @@ include_directories(${OPENGL_INCLUDE_DIRS} ${NANOVG_SRC_DIR})
 
 set(GLFW_BUILD_DOCS OFF CACHE BOOL  "GLFW lib only")
 set(GLFW_INSTALL OFF CACHE BOOL  "GLFW lib only")
+set(GLFW_BUILD_EXAMPLES OFF CACHE BOOL  "GLFW lib only")
+set(GLFW_BUILD_TESTS OFF CACHE BOOL  "GLFW lib only")
 
 add_subdirectory(${DEPS_DIR}/glfw glfw)
 include(${DEPS_DIR}/glad/cmake/CMakeLists.txt)
